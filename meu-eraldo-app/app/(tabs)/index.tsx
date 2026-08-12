@@ -13,12 +13,12 @@ export default function HomeScreen() {
     <ThemedView style={styles.container}>
       <ThemedText style={styles.titulo}>ola mundo</ThemedText>
       <ThemedText>meu nome e eraldo e esse e meu primeiro app de react native</ThemedText>
-      
-      <Image 
-        style={styles.image} 
-        source={require('@/assets/images/partial-eraldo-LogBox.png')} 
+ <Image
+        style={styles.image}
+        source={require('@/assets/images/raichu.png')}
+        contentFit="fill"
+        transition={1000}
       />
-      
       <StatusBar style='auto'/>
     </ThemedView>
   );
@@ -36,7 +36,8 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
   },
-  image: {
-    alignItems: 'center'
-  }
+ image: {
+    width: 200,
+    height: 200,
+  },
 });
