@@ -10,18 +10,24 @@ import { StatusBar } from 'expo-status-bar';
 
 export default function HomeScreen() {
   return (
-  <ThemedView style={styles.container}>
-    <ThemedText style={styles.titulo}>ola mundo</ThemedText>
-    <ThemedText>meu nome e eraldo e esse e meu primeiro app de react native</ThemedText>
-    <StatusBar style='auto'/>
-  </ThemedView>
+    <ThemedView style={styles.container}>
+      <ThemedText style={styles.titulo}>ola mundo</ThemedText>
+      <ThemedText>meu nome e eraldo e esse e meu primeiro app de react native</ThemedText>
+      
+      <Image 
+        style={styles.image} 
+        source={require('@/assets/images/partial-eraldo-LogBox.png')} 
+      />
+      
+      <StatusBar style='auto'/>
+    </ThemedView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#56ff13',
+    backgroundColor: '#ffac13',
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -29,5 +35,8 @@ const styles = StyleSheet.create({
     fontSize: 32,
     color: 'white',
     fontWeight: 'bold',
+  },
+  image: {
+    alignItems: 'center'
   }
 });
