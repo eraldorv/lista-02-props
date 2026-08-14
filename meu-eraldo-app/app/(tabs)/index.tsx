@@ -1,5 +1,5 @@
 import { Image } from "expo-image";
-import { StyleSheet } from "react-native";
+import { ScrollView, StyleSheet } from "react-native"; // 1. Importe o ScrollView
 
 import { ThemedText } from "@/components/themed-text";
 import { ThemedView } from "@/components/themed-view";
@@ -7,34 +7,54 @@ import { ThemedView } from "@/components/themed-view";
 export default function HomeScreen() {
   return (
     <ThemedView style={styles.container}>
-      <Image
-        style={styles.icone}
-        source={require("@/assets/images/keroppi-icone.jpg")}
-        transition={1000}
-      />
-
-      <ThemedView style={styles.header}>
-        <ThemedText style={styles.titulo}>@ERALDORV</ThemedText>
-        <ThemedText style={styles.subtitulo}>
-          Eraldo Ribeiro || Artista Digital
-        </ThemedText>
-      </ThemedView>
-
       <ThemedView style={styles.cardsinfo}>
-        <ThemedView style={styles.infoum}>
-          <ThemedText style={styles.tituloCard}>meus_contatos</ThemedText>
-          <ThemedText style={styles.textoqualquer}>
-            eraldorv15@gmail.com
-          </ThemedText>
+        <ThemedView style={styles.perfil}>
+          <ThemedView style={styles.infoperfil}>
+            <Image
+              style={styles.icone}
+              source={require("@/assets/images/keroppi-icone.jpg")}
+              transition={1000}
+            />
+            <ThemedText style={styles.titulo}>@eraldorv#2005{"\n"}</ThemedText>
+            <ThemedText style={styles.subtitulo}>
+              assistidor de filme{"\n"}
+              <ThemedText style={styles.subtitulo}>
+                7 seguidores • 7 seguindo
+              </ThemedText>
+            </ThemedText>
+          </ThemedView>
+
+          <ThemedView style={styles.filmescarrosel}>
+            <ThemedText style={styles.textopequenino}>
+              Filmes Recentes:
+            </ThemedText>
+
+
+            <ThemedView style={styles.filmerecentes}>
+    
+              <Image
+                style={styles.filme}
+                source={require("@/assets/images/filmeu.jpg")}
+                transition={1000}
+              />
+              <Image
+                style={styles.filme}
+                source={require("@/assets/images/filmed.jpg")}
+                transition={1000}
+              />
+              <Image
+                style={styles.filme}
+                source={require("@/assets/images/filmet.jpg")}
+                transition={1000}
+              />
+              <Image
+                style={styles.filme}
+                source={require("@/assets/images/filmeq.jpg")}
+                transition={1000}
+              />
+            </ThemedView>
+          </ThemedView>
         </ThemedView>
-      </ThemedView>
-      <ThemedView style={styles.cardois}>
-        <ThemedText style={styles.textopequenino}>
-          "Bad dreams in the night{"\n"}
-          They told me I was going to lose the fight{"\n"}
-          Leave behind my Wuthering, Wuthering{"\n"}
-          Wuthering Heights"
-        </ThemedText>
       </ThemedView>
     </ThemedView>
   );
@@ -43,7 +63,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#beff55",
+    backgroundColor: "#151518",
     alignItems: "center",
     justifyContent: "center",
     gap: 3,
@@ -51,51 +71,65 @@ const styles = StyleSheet.create({
   icone: {
     width: 100,
     height: 100,
-    borderRadius: 30,
+    borderRadius: 20,
   },
-  header: {
-    alignItems: "center",
-    gap: 1,
+  infoperfil: {
     backgroundColor: "transparent",
+    display: "flex",
+    flexDirection: "row",
+    padding: 1,
+    gap: 3,
   },
   titulo: {
     fontSize: 28,
-    color: "#367205",
+    color: "#aeb4ff",
     fontWeight: "bold",
     textAlign: "center",
   },
   subtitulo: {
-    fontStyle: "italic",
-    color: "#367205",
+    color: "#aeb4ff",
     fontSize: 12,
     textAlign: "center",
   },
   cardsinfo: {
-    width: "45%",
+    width: "100%",
     backgroundColor: "transparent",
   },
-  infoum: {
-    backgroundColor: "#ffffff",
-    padding: 16,
-    borderRadius: 12,
-    gap: 5,
+  perfil: {
+    backgroundColor: "#221f3d",
+    padding: 15,
+    borderRadius: 1,
+    gap: 2,
   },
   tituloCard: {
     fontSize: 25,
-    color: "#367205",
+    color: "#aeb4ff",
     fontWeight: "bold",
   },
   textoqualquer: {
-    color: "#367205",
+    color: "#aeb4ff5",
     fontSize: 14,
   },
   textopequenino: {
-    color: "#6a8b4e",
+    color: "#aeb4ff",
     textAlign: "center",
     fontSize: 10,
   },
-  cardois: {
-    width: "40%",
+  filmescarrosel: {
+    width: "100%",
     backgroundColor: "transparent",
+
+  },
+  filmerecentes: {
+    backgroundColor: "transparent",
+    display: "flex",
+    flexDirection: "row",
+    gap: 2,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  filme: {
+    flex: 1,
+    height: 150,
   },
 });
