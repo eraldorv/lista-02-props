@@ -31,7 +31,7 @@ const img = {
 
 
 const mensagem = {
-    sucesso: 'cadastro realizado comn suceso!!! e meu nome e eraldo',
+    sucesso: 'cadastro realizado comn suceso!!!',
     erro: 'erro....!',
     aviso: 'cuidado...',
 }

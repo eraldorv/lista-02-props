@@ -1,39 +1,52 @@
-import { StyleSheet, View, Text, Image} from "react-native";
+import React from 'react';
+import { StyleSheet, View, Text, Image, Platform } from 'react-native';
 
-export default function ContatoCard({ contato }: { contato: ContatoCardsProps; }) {
-    return (
-   <View style={styles.carddecontato}>
-    <Text style={styles.titulo}> ESSE E MEU CARTAO DE CONTATO</Text>
-        <Text style={styles.textocontato}>nome: {contato.nome}</Text>
-        <Text style={styles.textocontato}>idade: {contato.idade}</Text>
-        <Text style={styles.textocontato}>email: {contato.email}</Text>
-   </View>
-    )
-}
-
-interface ContatoCardsProps {
-    nome: string;
-    idade: number;
-    email: string;
+export default function CardContato({ nome, telefone, email, foto }) {
+  return (
+    <View style={styles.card}>
+      <Image 
+        source={{ uri: foto }} 
+        style={styles.foto} 
+        resizeMode="cover"
+      />
+      <View style={styles.info}>
+        <Text style={styles.nome}>{nome}</Text>
+        <Text style={styles.detalhe}>{telefone}</Text>
+        <Text style={styles.detalhe}>{email}</Text>
+      </View>
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
-  carddecontato: {
-    flex: 1,
-   backgroundColor: '#312c49',
+  card: {
+    flexDirection: 'row',
     alignItems: 'center',
+    backgroundColor: '#FFFFFF',
+    borderRadius: 12,
+    padding: 16,
+    marginBottom: 12,
+    elevation: 3,
+  },
+  foto: {
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    marginRight: 16,
+  },
+  info: {
+    flex: 1,
     justifyContent: 'center',
-    padding: "5%",
-    gap: 5,
-    borderRadius: 10,
   },
-  textocontato: {
-    color: 'white',
-    fontSize: 20,
+  nome: {
+    fontSize: 18,
+    fontWeight: '600',
+    color: '#1A1A1A',
+    marginBottom: 4,
   },
-titulo: {
-    color: 'white',
-    fontSize: 25,
-    fontWeight: 'bold',
-}
-})
+  detalhe: {
+    fontSize: 14,
+    color: '#666666',
+    marginTop: 2,
+  },
+});
